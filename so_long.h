@@ -6,7 +6,7 @@
 /*   By: mikhmart <mikhmart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 22:03:46 by mikhmart          #+#    #+#             */
-/*   Updated: 2024/07/18 21:26:49 by mikhmart         ###   ########.fr       */
+/*   Updated: 2024/07/19 21:26:52 by mikhmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,13 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 char	**ft_split(char const *s, char c);
 char	*ft_concat(char *s1, char const *s2);
-int		ft_strlen_spc(const char *str);
-int		validation(char **strs);
-void	error(void);
-
+char	*ft_strtrim(const char *s1, const char *set);
+void	trim_map(char **strs);
+void	is_surrounded_by1(char **strs);
+void	token_counter(char	**strs);
+void	validation(char **strs);
+void	wrong_map(void);
+void	no_hero(void);
+void	no_exit(void);
+void	no_coins(void);
 #endif

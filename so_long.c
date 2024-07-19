@@ -6,7 +6,7 @@
 /*   By: mikhmart <mikhmart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 22:04:48 by mikhmart          #+#    #+#             */
-/*   Updated: 2024/07/18 21:15:17 by mikhmart         ###   ########.fr       */
+/*   Updated: 2024/07/19 21:21:57 by mikhmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,13 @@ int main()
 	ft_putstr_fd(str, 1);
 	strs = ft_split(str, '\n');
 	printf("map start______\n");
-	if(validation(strs))
-		printf("Lav a\n");
-	else
-		printf("Lav chi\n");
+	int		i = 0;
+	trim_map(strs);
+	while(strs && strs[i])
+	{
+		printf("START|%s|END\n", strs[i]);
+		i++;
+	}
+	validation(strs);
 	printf("map end______\n");
 }
