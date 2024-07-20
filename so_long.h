@@ -6,7 +6,7 @@
 /*   By: mikhmart <mikhmart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 22:03:46 by mikhmart          #+#    #+#             */
-/*   Updated: 2024/07/19 21:26:52 by mikhmart         ###   ########.fr       */
+/*   Updated: 2024/07/20 18:41:38 by mikhmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ char	*ft_strtrim(const char *s1, const char *set);
 void	trim_map(char **strs);
 void	is_surrounded_by1(char **strs);
 void	token_counter(char	**strs);
+void	accessibility(char **strs, int coins);
 void	validation(char **strs);
 void	wrong_map(void);
 void	no_hero(void);
 void	no_exit(void);
 void	no_coins(void);
+
 #endif

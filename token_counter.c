@@ -6,7 +6,7 @@
 /*   By: mikhmart <mikhmart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 19:27:03 by mikhmart          #+#    #+#             */
-/*   Updated: 2024/07/19 21:27:23 by mikhmart         ###   ########.fr       */
+/*   Updated: 2024/07/20 18:43:09 by mikhmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,5 @@ void	token_counter(char	**strs)
 		++i;
 	}
 	token_validation(&player_counter, &coin_counter, &exit_counter);
+	accessibility(strs, coin_counter);
 }
