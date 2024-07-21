@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   fill_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mikhmart <mikhmart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 20:43:22 by mikhmart          #+#    #+#             */
-/*   Updated: 2024/07/21 18:18:10 by mikhmart         ###   ########.fr       */
+/*   Created: 2024/07/21 21:44:21 by mikhmart          #+#    #+#             */
+/*   Updated: 2024/07/21 21:56:24 by mikhmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	*ft_strtrim(char *s1, const char *set)
-{
-	size_t	y;
-	char	*m;
 
-	y = 0;
-	if (s1 == NULL)
-		return (NULL);
-	y = ft_strlen(s1);
-	while (y > 0 && ft_strchr(set, s1[y - 1]) != NULL)
-		--y;
-	m = ft_substr(s1, 0, y);
-	free(s1);
-	return (m);
-}
-
-void	trim_map(char **strs)
+int	map_height(char	**strs)
 {
-	while(strs && *strs)
+	int	i;
+
+	i = 0;
+	while(strs[i])
 	{
-		*strs = ft_strtrim(*strs, " \t");
-		++strs;		
+		++i;
 	}
+	return (i);
+}
+void	create_map(t_game *game, t_images *imgs)
+{
+	game->i = 0;
+	while(game->map[game->i])
+	{
+		game->j = 0;
+		while(game->map[game->i][game->j])
+		{
+			draw_an_image(game, imgs);
+			++(game->j);
+		}
+		++(game->i);
+	}	
 }

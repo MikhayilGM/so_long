@@ -6,7 +6,7 @@
 /*   By: mikhmart <mikhmart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 21:09:54 by mikhmart          #+#    #+#             */
-/*   Updated: 2024/07/20 19:29:29 by mikhmart         ###   ########.fr       */
+/*   Updated: 2024/07/21 18:43:34 by mikhmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,16 +76,12 @@ void accessibility(char **strs, int coins)
 	path_finder(strs, &coins, &ec);
 	if (coins != 0)
 	{
-		printf("%d\n", coins);
-		write(2, "Error\n", 6);
-		write(2, "There is No Access to Every Coins.\n", 35);
+		ft_putstr_fd("Error\nThere is No Access to Every Coins.\n", 2);
 		exit(1);
 	}
 	if (ec != 0)
 	{
-		printf("%d\n", ec);
-		write(2, "Error\n", 6);
-		write(2, "There is No Access to Exit.\n", 28);
+		ft_putstr_fd("Error\nThere is No Access to Exit.\n", 2);
 		exit(1);
 	}
 } 

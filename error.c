@@ -6,7 +6,7 @@
 /*   By: mikhmart <mikhmart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 21:26:29 by mikhmart          #+#    #+#             */
-/*   Updated: 2024/07/20 19:39:57 by mikhmart         ###   ########.fr       */
+/*   Updated: 2024/07/21 19:12:56 by mikhmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,24 @@
 
 void	wrong_map(void)
 {
-	write(2, "Error\n", 6);
-	write(2, "Your Map is in Wrong Format\n", 28);
+	ft_putstr_fd("Error\nYour Map is in Wrong Format.\n", 2);
 	exit(1);
 }
 
 void no_hero(void)
 {
-	write(2, "Error\n", 6);
-	write(2, "There must be one Hero.\n", 24);
+	ft_putstr_fd("Error\nThere must be one Hero.\n", 2);
 	exit(1);
 }
 
 void no_exit(void)
 {
-	write(2, "Error\n", 6);
-	write(2, "There must be one Exit.\n", 24);
+	ft_putstr_fd("Error\nThere must be one Exit.\n", 2);
 	exit(1);
 }
 
 void no_coins(void)
 {
-	write(2, "Error\n", 6);
-	write(2, "There is No Coins.\n", 18);
+	ft_putstr_fd("Error\nThere is No Coins.\n", 2);
 	exit(1);
 }

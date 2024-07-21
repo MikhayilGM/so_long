@@ -6,11 +6,33 @@
 /*   By: mikhmart <mikhmart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 18:49:56 by mikhmart          #+#    #+#             */
-/*   Updated: 2024/07/20 18:58:38 by mikhmart         ###   ########.fr       */
+/*   Updated: 2024/07/21 21:43:22 by mikhmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	check_nl_between(char *str)
+{
+	while(str && *str)
+	{
+		if(*str != '\n' && *str != ' ' && *str != '\t')
+			break;
+		++str;
+	}
+	while(str && *str)
+	{
+		if(*str == '\n' && *(str + 1) != '1')
+			break;
+		++str;		
+	}
+	while(str && *str)
+	{
+		if(*str != '\n' && *str != ' ' && *str != '\t')
+			wrong_map();
+		++str;
+	}
+}
 
 static int	only_ones(char	*str)
 {
@@ -28,7 +50,8 @@ void	is_surrounded_by1(char **strs)
 	int	i;
 
 	i = 1;
-	if(!(strs) || !(strs[0]) || !only_ones(strs[0]) || ft_strlen(strs[0]) < 2)
+	if(!(strs) || !(strs[0]) || !only_ones(strs[0]) || ft_strlen(strs[0]) < 2
+		|| ft_strlen(strs[0]) > 62)
 		wrong_map();
 	while(strs[i])
 	{
@@ -37,7 +60,7 @@ void	is_surrounded_by1(char **strs)
 			wrong_map();
 		++i;
 	}
-	if(i < 2 || !only_ones(strs[i - 1]) )
+	if(i < 2 || i > 33 || !only_ones(strs[i - 1]) )
 	{
 		wrong_map();
 	}

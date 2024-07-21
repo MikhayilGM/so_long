@@ -6,37 +6,32 @@
 /*   By: mikhmart <mikhmart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 22:04:48 by mikhmart          #+#    #+#             */
-/*   Updated: 2024/07/19 21:21:57 by mikhmart         ###   ########.fr       */
+/*   Updated: 2024/07/21 22:17:16 by mikhmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main()
-{
-	int		fd;
-	char	*str;
-	char	*str1;
-	char	**strs;
-
-	fd = open("map.ber", O_RDONLY);
-	str = get_next_line(fd);
-	str1 = get_next_line(fd);
-	while(str1)
-	{
-		str = ft_concat(str, str1);
-		str1 = get_next_line(fd);
+int main(int argc, char	**argv)
+{	
+	t_game game;
+	t_images imgs;
+	
+	if(argc == 2)
+	{	
+		game.map = open_and_push(argv[1]);
+		trim_map(game.map);
+		validation(game.map);
+		game.mlx = mlx_init();
+		game.window = mlx_new_window(game.mlx, ft_strlen(game.map[0])*32, 
+			map_height(game.map)*32, "so_long");
+		push_images(&game, &imgs);
+		create_map(&game, &imgs);
+		mlx_loop(game.mlx);
 	}
-	ft_putstr_fd(str, 1);
-	strs = ft_split(str, '\n');
-	printf("map start______\n");
-	int		i = 0;
-	trim_map(strs);
-	while(strs && strs[i])
+	else
 	{
-		printf("START|%s|END\n", strs[i]);
-		i++;
+		ft_putstr_fd("Error\nYou had to Enter 1 argument to Executable File(./so_long (MAP_FILENAME)).\n", 2);
+		exit(1);
 	}
-	validation(strs);
-	printf("map end______\n");
 }
